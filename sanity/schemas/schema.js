@@ -17,6 +17,6 @@ export default createSchema({
     project,
     social,
     experience,
-    skill,
+    skill
   ]),
 })

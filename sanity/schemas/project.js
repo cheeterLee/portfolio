@@ -26,7 +26,7 @@ export default {
             name: "technologies",
             title: "Technologies",
             type: "string",
-            of: [{ type: "reference", to: { type: skill } }]
+            of: [{ type: "reference", to: { type: "skill" } }]
         },
         {
             name: "linkToBuild",
