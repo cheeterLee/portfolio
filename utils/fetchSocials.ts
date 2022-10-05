@@ -1,12 +1,15 @@
 import { Social } from "../typings"
+import { sanityClient } from "../sanity"
+import { groq } from "next-sanity"
 
 export const fetchSocials = async () => {
-    const res = await fetch(`http://localhost:3000/api/getSocials`)
+    const query = groq`
+        *[_type == "social"]
+    `;
 
-    const data = await res.json()
-    const socials: Social[] = data.socials
+    const result = await sanityClient.fetch(query)
 
-    // console.log(socials)
+    const socials: Social[] = result
     
     return socials
 }
