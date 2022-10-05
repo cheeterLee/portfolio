@@ -48,10 +48,10 @@ export interface Skill extends SanityBody {
 export interface Project extends SanityBody {
     _type: "projcet";
     title: string;
-    imgae: Image;
+    image: Image;
     linkToBuild: string;
     summary: string;
-    technology: Technology[];
+    technologies: Technology[];
 }
 
 export interface Experience extends SanityBody {

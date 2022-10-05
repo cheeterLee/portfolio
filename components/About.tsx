@@ -1,9 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { PageInfo } from '../typings'
+import { urlFor } from '../sanity'
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo
+}
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -24,12 +28,12 @@ const About = (props: Props) => {
             }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{once: true}}
-            src='https://user-images.githubusercontent.com/87960642/193521602-7b80dbf2-46ae-4aba-8047-3eb92f51a218.jpeg'
+            src={urlFor(pageInfo?.profilePic).url()}
             className='-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[300px] xl:h-[400px]'
         />
         <div className='space-y-10 px-0 md:px-10'>
             <h4 className='text-4xl font-semibold'>Here is a <span className='underline decoration-[#F7AB0A]/50'>little</span> background</h4>
-            <p className='text-base'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque adipisci esse a soluta quo ut, officia, quae quaerat sequi aliquam aut porro amet ducimus! Odio ea magni itaque doloribus neque.</p>
+            <p className='text-base'>{pageInfo?.backgroundInformation}</p>
         </div>
     </motion.div>
   )
